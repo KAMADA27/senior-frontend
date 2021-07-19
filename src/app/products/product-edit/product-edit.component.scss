@@ -1,0 +1,149 @@
+@import "abstracts/variables";
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    .form {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &__field {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+
+            &--quantity {
+                width: 50%;
+            }
+
+            &--unit {
+                width: 48%;
+            }
+
+            &--validity {
+                width: 80%;
+            }
+
+            &--perishable {
+                width: 18%;
+            }
+        }
+
+        &__group {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: $color-primary;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            font-size: 1.4rem;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            
+            .btn {
+                font-size: 1.4rem;
+
+                &--add {
+                    margin-right: 1rem;
+                    background: $color-primary;
+                    border: $color-primary;
+                }
+    
+                &--cancel {
+                    margin-right: 2rem;
+                    background: $color-grey-dark;
+                    border: $color-grey-dark;
+
+                    &:focus {
+                        box-shadow: 0 0 0 0.1rem $color-grey-dark-2;
+                    }
+                }
+            }
+        }
+
+        .alert-msg {
+            color: $color-red;
+        }
+    }
+}
+
+:host ::ng-deep .p-inputtext {
+    padding: 1rem 1rem;
+
+    &:hover {
+        border-color: $color-primary;
+    }
+
+    &:enabled:focus {
+        box-shadow: 0 0 0 0.1rem $color-primary-light;
+        border-color: $color-primary;
+    }
+}
+
+:host ::ng-deep .p-button {
+    padding: 0.8rem 1rem;
+
+    &:focus {
+        box-shadow: 0 0 0 0.1rem $color-primary-light;
+    }
+}
+
+:host ::ng-deep .p-calendar {
+    width: 100%;
+
+    .p-inputtext {
+        padding: 1rem 1rem;
+        font-size: 1.4rem;
+    }
+}
+
+:host ::ng-deep .p-dropdown {
+    width: 100%;
+
+    .p-inputtext {
+        padding: 0.7rem 0.7rem;
+    }
+
+    .p-dropdown-label {
+        font-size: 1.4rem;
+    }
+
+    .p-dropdown-panel {
+        font-size: 1.4rem;
+    }
+
+    .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+        background: rgba($color-primary, 0.2);
+    }
+
+    &:hover {
+        border-color: $color-primary;
+    }
+}
+
+:host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 0.1rem $color-primary-light;
+}
+
+.p-float-label label {
+    font-size: 1.4rem;
+    margin-top: -0.8rem;
+}

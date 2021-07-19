@@ -1,0 +1,67 @@
+@import "abstracts/variables";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .options {
+        width: 85%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 4rem;
+        padding: 1rem;
+
+        &__add {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            i {
+                color: $color-primary;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .products {
+        width: 85%;
+
+        .btn {
+            display: flex;
+            justify-content: space-around;
+            cursor: pointer;
+
+            i {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+:host ::ng-deep .pi {
+    font-size: 3rem;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    background: $color-primary;
+    color: $color-white;
+}
+
+:host ::ng-deep .p-dialog {
+    font-size: 1.4rem;
+    
+    .pi {
+        font-size: 2rem;
+    }
+
+    .p-button {
+        background: $color-primary;
+        border-color: $color-primary;
+
+        &:focus {
+            box-shadow: 0 0 0 0.1rem $color-primary-light;
+        }
+    }
+}

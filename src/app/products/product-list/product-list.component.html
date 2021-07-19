@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="options">
+        <div class="options__add" (click)="addProduct()">
+            <i class="pi pi-plus-circle"></i>
+            <span>Adicionar produto</span>
+        </div>
+    </div>
+    <div class="products">
+        <p-table [value]="products">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nome</th>
+                    <th>Unidade</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Produto perecível</th>
+                    <th>Data de validade</th>
+                    <th>Data de fabricação</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product let-i="rowIndex">
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.unitMeasurement }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price | currency: 'BRL' }}</td>
+                    <td>{{ product.perishable ? "Sim" : "Não" }}</td>
+                    <td>{{ product.validityDate ? product.validityDate : '-'}}</td>
+                    <td>{{ product.manufacturingDate }}</td>
+                    <td>
+                        <div class="btn">
+                            <i (click)="editProduct(i)" class="pi pi-pencil"></i>
+                            <i (click)="removeProduct(i)" class="pi pi-trash"></i>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <p-confirmDialog 
+        header="Confirmação" 
+        icon="pi pi-exclamation-triangle" 
+        [breakpoints]="{'96rem': '75vw', '64rem': '100vw'}" 
+        [style]="{ width: '20vw' }"
+    >
+    </p-confirmDialog>
+</div>

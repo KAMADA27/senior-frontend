@@ -1,0 +1,31 @@
+<div class="menu">
+    <p-sidebar [(visible)]="display" [baseZIndex]="10000" class="sidebar">
+        <h1>Senior Sistemas</h1>
+        <div>
+            <div class="sidebar__item">
+                <i class="pi pi-book"></i>
+                <span>Produtos</span>
+            </div>
+            <div class="sidebar__sub-item">
+                <div routerLink="/products">
+                    <i class="pi pi-angle-right"></i>
+                    <span>Listagem</span>
+                </div>
+                <div routerLink="/products/new">
+                    <i class="pi pi-angle-right"></i>
+                    <span>Cadastro</span>
+                </div>
+            </div>
+        </div>
+    </p-sidebar>
+    <div class="navigation">
+        <button 
+            pButton 
+            type="button"
+            class="navigation__button" 
+            (click)="openSidebar()" 
+            icon="pi pi-bars"
+        >
+        </button>
+    </div>
+</div>

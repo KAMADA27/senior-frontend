@@ -1,0 +1,92 @@
+<div class="product-container">
+    <div class="form">
+        <h1>Cadastro de produtos</h1>
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div class="form__field">
+                <label>Nome</label>
+                <input type="text" pInputText formControlName="name"> 
+            </div>
+            <div class="form__group">
+                <div class="form__field--quantity">
+                    <label>Quantidade</label>
+                    <input  
+                        type="text" 
+                        pInputText 
+                        formControlName="quantity"
+                    > 
+                </div>
+                <div class="form__field--unit">
+                    <label>Unidade de medida</label>
+                    <p-dropdown 
+                        [options]="unitOptions" 
+                        formControlName="unitMeasurement"
+                        optionLabel="name"
+                        optionValue="unit"
+                        placeholder="Selecione a unidade"
+                        (onChange)="unitValidatorHandler($event)"
+                    >
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="form__field">
+                <label>Preço</label>
+                <input  
+                    type="text" 
+                    pInputText 
+                    formControlName="price"
+                    currencyMask
+                > 
+            </div>
+            <div class="form__group">
+                <div class="form__field--validity">
+                    <label>Data de validade</label>
+                    <p-calendar 
+                        formControlName="validityDate" 
+                        dateFormat="dd/mm/yy"
+                        (onSelect)="dateValidityHandler($event)"
+                    >
+                    </p-calendar>
+                    <span *ngIf="isExpired" class="alert-msg">Produto encontra-se vencido!</span>
+                </div>
+                <div class="form__field--perishable">
+                    <label for="float-input">Perecível</label>
+                    <p-dropdown 
+                        [options]="perishableOptions" 
+                        formControlName="perishable"
+                        optionLabel="name"
+                        optionValue="value"
+                        (onChange)="perishableValueHandler($event)"
+                    >
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="form__field">
+                <label>Data de fabricação</label>
+                <p-calendar 
+                    formControlName="manufacturingDate" 
+                    dateFormat="dd/mm/yy"
+                    (onSelect)="manufacturingDateHandler($event)"
+                >
+                </p-calendar>
+                <span *ngIf="isHigher" class="alert-msg">Data de fabricação maior que data de valiadade</span>
+            </div>
+            <div class="btn-container">
+                <button 
+                    pButton 
+                    type="button" 
+                    class="btn btn--cancel"
+                    (click)="back()"
+                >
+                    Cancelar
+                </button>
+                <button 
+                    pButton 
+                    type="submit" 
+                    class="btn btn--add"
+                >
+                    Adicionar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
